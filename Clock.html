@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+		.btn-spinner-minus {
+		  border: 1px solid #ced4da;
+		  border-radius: 0.25rem 0rem 0rem 0.25rem 
+		}
+		.btn-spinner-plus {
+		  border: 1px solid #ced4da;
+		  border-radius: 0rem .25rem .25rem 0rem 
+		}
+		.showTime{
+		  color: #1e7e34;
+		  font-weight: bold;
+		  font-size: 1.5rem;
+		}
+		.errorMsg{
+			Color: red;
+			font-size: 2rem;				
+		}	
+		.successMsg{
+			Color: Green;
+			font-size: 2rem;				
+		}			
+    </style>
+	
+</head>	
+<body>
+
+<div class="container" style="padding-top: 50px;">
+	<div class="row">
+		<div class="col">	
+			<canvas id="canvas" width="400" height="400"
+			style="background-color:#333">
+			</canvas>
+		</div>
+		<div class="col">	
+			<div class="container">
+				<div class="row">
+					<div class="col-s-3 col-s-offset-3">
+						<span class="h5">Show <span class="showTime">seven thirty</span> on the clock</span>
+						<br><br>
+						<div class="input-group hour-spinner">
+							<span class="input-group-btn">
+								<button class="btn btn-default btn-spinner-minus" data-dir="dwn"><span class="fas fa-minus"></span></button>					
+							</span>
+							<span style="width: 5rem; text-align: center; line-height: 40px;">Hour</span>
+							<input type="text" id="txtHour" class="form-control text-center" style="width: 5rem; display: none;" value="1">
+							<span class="input-group-btn">
+								<button class="btn btn-default btn-spinner-plus" data-dir="up"><span class="fas fa-plus"></span></button>
+							</span>
+						</div>
+						<br>
+						<div class="input-group minute-spinner">
+							<span class="input-group-btn">
+								<button class="btn btn-default btn-spinner-minus" data-dir="dwn"><span class="fas fa-minus"></span></button>
+							</span>
+							<span style="width: 5rem; text-align: center; line-height: 40px;">Minute</span>
+							<input type="text" id="txtMinute" class="form-control text-center" style="width: 5rem; display: none;" value="0">
+							<span class="input-group-btn">
+								<button class="btn btn-default btn-spinner-plus" data-dir="up"><span class="fas fa-plus"></span></button>
+							</span>
+						</div>			
+						<br>
+						<div>
+							<button id="btnOk" type="button" class="btn btn-success" onclick="checkAnswer()">Check</button>
+						</div>
+						<br>
+						<div>
+							<div id="submitMsg"></div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).on('click', '.hour-spinner button', function () {    
+	var btn = $(this),
+		oldValue = btn.closest('.hour-spinner').find('input').val().trim(),
+		newVal = 0;
+	
+	if (btn.attr('data-dir') == 'up') {
+		if (oldValue == 12) {
+			newVal = 1;
+		} else {
+			newVal = parseInt(oldValue) + 1;
+		}
+	} else {
+		if (oldValue > 0) {
+			newVal = parseInt(oldValue) - 1;
+		} else {
+			newVal = 11;
+		}
+	}
+	btn.closest('.hour-spinner').find('input').val(newVal);
+});
+
+$(document).on('click', '.minute-spinner button', function () {    
+	var btn = $(this),
+		oldValue = btn.closest('.minute-spinner').find('input').val().trim(),
+		newVal = 0;
+	
+	if (btn.attr('data-dir') == 'up') {
+		if (oldValue == 0) {
+			newVal = 5;
+		} else {
+			newVal = parseInt(oldValue) + 5;
+		}
+	} else {
+		if (oldValue > 0) {
+			newVal = parseInt(oldValue) - 5;
+		} else {
+			newVal = 55;
+		}
+	}
+	btn.closest('.minute-spinner').find('input').val(newVal);
+});
+
+function checkAnswer(){
+	if(parseInt(document.getElementById("txtHour").value)==7 && parseInt(document.getElementById("txtMinute").value)==30)
+	{
+		document.getElementById("submitMsg").className  = "successMsg";
+		document.getElementById("submitMsg").innerHTML = "Well done!";	
+	}					
+	else
+	{
+		document.getElementById("submitMsg").className  = "errorMsg";
+		document.getElementById("submitMsg").innerHTML = "Incorrect. Check again!";
+	}
+} 
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawMinutes(ctx, radius);
+  //drawTime(ctx, radius);
+  setTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawMinutes(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 60; num++){
+    ang = num * Math.PI / 30;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(".", 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+
+function setTime(ctx, radius){
+    var now = new Date();
+    var hour = parseInt(document.getElementById("txtHour").value);
+    var minute = parseInt(document.getElementById("txtMinute").value);
+    var second = 0;
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+</script>
+
+</body>
+</html>
