@@ -90,6 +90,9 @@
 			  this.canvas.addEvent('mousemove', this.stroke.bind(this));
 			  this.canvas.addEvent('mouseup', this.stop.bind(this));
 			  this.canvas.addEvent('mouseout', this.stop.bind(this));
+				this.canvas.addEvent('touchstart', this.stop.bind(this));
+				this.canvas.addEvent('touchmove', this.stop.bind(this));
+				this.canvas.addEvent('touchend', this.stop.bind(this));
 			},
 			start: function(evt) {
 			  var x = evt.page.x - this.canvas_coords.left;
