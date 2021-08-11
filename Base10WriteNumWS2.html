@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="Styles/Base10WriteNum.css">
+	<link rel="stylesheet" href="Styles/exceled.css">
+	<!-- Latest compiled JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="Scripts/Base10WriteNum.js"></script>
+	
+	<script>	
+		let randomQuestion;
+		let answers = [];
+		let currentQnNumber = 0;
+		let numPoolQuestions = 20;
+		let numQuestions = 10;
+		let qnNumbers = getRandQnNumbers();			
+				
+		document.addEventListener("DOMContentLoaded", function(event) 
+		{ 
+			//btnProvideQuestions(quizBase10JoinNumWS1);		
+		});
+	</script>	
+</head>	
+
+<body onload="init()">
+<div class="container">		
+	<div id="container" class="row">			
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens1"></div></div>			
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes1"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum1"></div></div>			
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens2"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes2"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum2"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens3"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes3"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum3"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens4"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes4"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum4"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens5"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes5"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum5"></div></div>				
+		</div>			
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens6"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes6"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum6"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens7"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes7"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum7"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens8"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes8"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum8"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens9"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes9"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum9"></div></div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-3 labelBox"><div class="horizontal">දහයේ ඒවා</div><div class="col-sm-1 horizontal" id="lblTens10"></div></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">එකේ ඒවා</div><div class="col-sm-1 horizontal" id="lblOnes10"></div></div>
+			<div class="col-sm-1"><img src="Resources/rightArrow.png"></img></div>
+			<div class="col-sm-3 labelBox"><div class="horizontal">සංඛ්‍යාව</div><div class="col-sm-1 horizontal" id="lblNum10"></div></div>				
+		</div>			
+	</div>
+	<div class="row" style="padding-top: 20px">
+		<div class="col horizontal">
+			<div class="row">
+				<div style="padding-right:10px"><button id="btn_delar" class="btn btn-outline-primary">Delete Arrows</button></div>
+				<div><button id="retry" class="btn btn-outline-primary" onclick="retryClicked(quizBase10JoinNumWS1)">Try again!</button></div>
+			</div>	
+			<div class="row">
+				<div id="submitMsg" class="submitmsg"></div>
+			</div>	
+		</div>	
+	</div>	
+</div> 
+</body>
+	<script>	
+		// REPLACE 'container' WITH THE ID OF ELEMENT WHERE TO DRAW ARROWS if needed
+		let elm_container = document.querySelector('#container');
+		// draw arrow with SVG between the clicks coords in $elm_container
+		var drawAr = new drawArrowSVG(elm_container);		
+		
+		//register click on #btn_delar to delete arrows
+		var btn_delar = document.getElementById('btn_delar');
+		if(btn_delar) 
+			btn_delar.addEventListener('click', clearArrows);
+		
+//		if(btn_delar) btn_delar.addEventListener('click', function(e){
+//			var arrsvg = document.querySelectorAll('.arrsvg');
+//			for(var i=0; i<arrsvg.length; i++) arrsvg[i].outerHTML ='';
+//		});
+	</script>	
+</html>

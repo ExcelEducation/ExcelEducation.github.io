@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="Styles/WriteNumbers.css">
+	<link rel="stylesheet" href="Styles/exceled.css">
+	<!-- Latest compiled JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="Scripts/WriteNumbers.js"></script>
+</head>	
+<body>
+
+ <div class="container">
+	<div class="row">
+		<div class="col mainCol">
+			<div class="row">
+				<div id="lbl1" class="col-sm labelBox">18</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt1" class="form-control">
+					<input type="hidden" id="hid1" class="form-control" value="දහඅට|දහ අට">
+				</div>			
+			</div>
+			<div class="row">
+				<div id="lbl2" class="col-sm labelBox">35</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt2" class="form-control">
+					<input type="hidden" id="hid2" class="form-control" value="තිස් පහ">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl3" class="col-sm labelBox">52</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt3" class="form-control">
+					<input type="hidden" id="hid3" class="form-control" value="පනස් දෙක">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl4" class="col-sm labelBox">16</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt4" class="form-control">
+					<input type="hidden" id="hid4" class="form-control" value="දහසය|දාසය">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl5" class="col-sm labelBox">79</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt5" class="form-control">
+					<input type="hidden" id="hid5" class="form-control" value="හැත්ත නවය|හැත්තෑ නවය|හැත්තෑ නමය|හැත්ත නමය">
+				</div>
+			</div>			
+		</div>
+		<div class="col">
+			<div class="row">
+				<div id="lbl6" class="col-sm labelBox">11</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt6" class="form-control">
+					<input type="hidden" id="hid6" class="form-control" value="එකොළහ">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl7" class="col-sm labelBox">99</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt7" class="form-control">
+					<input type="hidden" id="hid7" class="form-control" value="අනූ නවය|අනූ නමය">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl8" class="col-sm labelBox">83</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt8" class="form-control">
+					<input type="hidden" id="hid8" class="form-control" value="අසු තුන">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl9" class="col-sm labelBox">45</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt9" class="form-control">
+					<input type="hidden" id="hid9" class="form-control" value="හතලිස් පහ">
+				</div>
+			</div>
+			<div class="row">
+				<div id="lbl10" class="col-sm labelBox">28</div>
+				<div class="col-sm-8">
+					<input type="text" id="txt10" class="form-control">
+					<input type="hidden" id="hid10" class="form-control" value="විසි අට">
+				</div>
+			</div>			
+		</div>		
+	</div> 
+	<div class="row" style="padding-top: 20px">
+		<div class="col">
+			<div class="row">
+				<button id="submit" class="btn btn-outline-primary" onclick="jsCheckTextAnswers()">Submit</button>
+			</div>	
+			<div class="row">
+				<div id="submitmsg" class="submitMessage"></div>
+			</div>	
+		</div>	
+	</div>	
+</div> 
+</body>
+</html>

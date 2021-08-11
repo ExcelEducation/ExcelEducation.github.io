@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="Styles/Counting.css">
+	<link rel="stylesheet" href="Styles/exceled.css">
+	<!-- Latest compiled JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="Scripts/Counting.js"></script>
+
+	<script>	
+		let randomQuestion;
+		let answers = [];
+		let	currentScore = 0;
+		let currentQnNumber = 0;
+		let numPoolQuestions = 20;
+		let numQuestions = 10;
+		let qnNumbers = getRandQnNumbers();			
+				
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			btnProvideQuestion(quizCby2WS1);
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="score" style="padding-right: 1rem;">Score</div>
+			<div id="score" class="score">0</div>
+		</div>
+		<div class="row">
+			<div class="col">				
+				<div class="row componentpadding">
+					<div id="question" class="question"></div>
+				</div>
+				<div class="row">
+					<button id="retry" class="btn btn-outline-primary" onclick="retryClicked(quizCby2WS1)" style="display:none">Try again!</button>	
+				</div>								
+			</div>
+		</div>			
+		<div class="row">
+			<div class="col">
+				<img class="image" id="qnimage">
+			</div>
+			<div class="col leftpanel">
+				<div class="row">
+					<div class="col">
+						<div class="row componentpadding">
+							<div id="inputlabel" class="questionlabel"></div>
+						</div>
+						<div class="row componentpadding">
+							<input id="userinput" class="form-control answer" type="text"></input>				
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<button id="next" class="btn btn-outline-primary" onclick="nextClicked(quizCby2WS1)">Next</button>								
+				</div>
+			</div>			
+		</div>	
+	</div>			
+</body>
+</html>

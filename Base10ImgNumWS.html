@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="Styles/Base10ImgNum.css">
+	<link rel="stylesheet" href="Styles/exceled.css">
+	<!-- Latest compiled JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="Scripts/Base10ImgNum.js"></script>
+	
+	<script>	
+		let randomQuestion;
+		let answers = [];
+		let	currentScore = 0;
+		let currentQnNumber = 0;
+		let numPoolQuestions = 20;
+		let numQuestions = 3;
+		let qnNumbers = getRandQnNumbers();			
+				
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			btnProvideQuestion(quizB10FillWS1);
+		});
+	</script>
+</head>
+<body>
+	<div class="container-sm">
+		<div class="row componentpadding">
+			<div class="score" style="padding-right: 1rem;">Score</div>
+			<div id="score" class="score">0</div>
+		</div>
+		<div class="row componentpadding">
+			<div class="col">		
+				<div id="hdrRow1" class="row">Fill in the blanks</div>			
+				<div id="hdrRow2" class="row">
+					<div class="col-sm-7"></div>
+					<div class="col-sm">දහයේ ඒවා</div>
+					<div class="col-sm">එකේ ඒවා</div>
+					<div class="col-sm">සංඛ්‍යාව</div>
+				</div>
+				<div class="row componentpadding">
+					<div class="col-sm-7"><img id="qnimage"></div>
+					<div class="col-sm textCol"><input id="tens" class="form-control answer" type="text"></input></div>
+					<div class="col-sm textCol"><input id="ones" class="form-control answer" type="text"></input></div>
+					<div class="col-sm textCol"><input id="number" class="form-control answer" type="text"></input></div>
+				</div>				
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div id="submitmsg" class="submitmsg" style="display:none"></div>
+						</div>						
+						<div class="row">
+							<button id="retry" class="btn btn-outline-primary" onclick="retryClicked(quizB10FillWS1)" style="display:none">Try again!</button>	
+						</div>	
+					</div>				
+				</div>								
+			</div>
+		</div>			
+		<div class="row">
+			<button id="next" class="btn btn-outline-primary" onclick="nextClicked(quizB10FillWS1)">Next</button>							
+		</div>	
+	</div>			
+</body>
+</html>

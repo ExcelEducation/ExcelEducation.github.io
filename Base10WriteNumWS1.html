@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="Styles/Base10WriteNum.css">
+	<link rel="stylesheet" href="Styles/exceled.css">
+	<!-- Latest compiled JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="Scripts/Base10WriteNum.js"></script>
+	
+	<script>	
+		let randomQuestion;
+		let answers = [];
+		let currentQnNumber = 0;
+		let numPoolQuestions = 20;
+		let numQuestions = 10;
+		let qnNumbers = getRandQnNumbers();			
+				
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			btnProvideQuestions(quizBase10WriteNumWS1);
+		});
+	</script>	
+</head>	
+<body>
+
+ <div class="container">
+	<div class="row">
+		<div class="col mainCol">
+			<div class="row">
+				<div class="col hdrBox">සංඛ්‍යාව</div>
+				<div class="col-sm-4 hdrBox">දහයේ ඒවා</div>			
+				<div class="col-sm-4 hdrBox">එකේ ඒවා</div>
+			</div>		
+			<div class="row">
+				<div id="lbl1" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens1" class="form-control"></div>			
+				<div class="col-sm-4"><input type="text" id="txtOnes1" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl2" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens2" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes2" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl3" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens3" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes3" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl4" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens4" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes4" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl5" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens5" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes5" class="form-control"></div>
+			</div>			
+		</div>
+		<div class="col">
+			<div class="row">
+				<div class="col hdrBox">සංඛ්‍යාව</div>
+				<div class="col-sm-4 hdrBox">දහයේ ඒවා</div>			
+				<div class="col-sm-4 hdrBox">එකේ ඒවා</div>
+			</div>				
+			<div class="row">
+				<div id="lbl6" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens6" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes6" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl7" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens7" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes7" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl8" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens8" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes8" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl9" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens9" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes9" class="form-control"></div>
+			</div>
+			<div class="row">
+				<div id="lbl10" class="col labelBox"></div>
+				<div class="col-sm-4"><input type="text" id="txtTens10" class="form-control"></div>
+				<div class="col-sm-4"><input type="text" id="txtOnes10" class="form-control"></div>
+			</div>			
+		</div>		
+	</div> 
+	<div class="row" style="padding-top: 20px">
+		<div class="col">
+			<div class="row">
+				<button id="submit" class="btn btn-outline-primary" onclick="jsCheckAnswers(quizBase10WriteNumWS1)">Submit</button>
+				<button id="retry" class="btn btn-outline-primary" onclick="retryClicked(quizBase10WriteNumWS1)" style="display:none">Try again!</button>	
+			</div>	
+			<div class="row">
+				<div id="submitMsg" class="submitmsg"></div>
+			</div>	
+		</div>	
+	</div>	
+</div> 
+</body>
+</html>
