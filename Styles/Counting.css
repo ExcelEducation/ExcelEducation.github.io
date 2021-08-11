@@ -1,0 +1,35 @@
+/* Copyright ExcelEd */
+
+.score{
+	padding-right: 1rem;	
+}
+
+.question{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.image{
+	padding: 2rem 1rem 0rem 0rem !important;	
+	margin-left: 0rem !important;	
+}
+
+.questionlabel{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 1rem;
+	font-weight: bold;	
+}
+
+.answer{
+	width: 5rem !important;
+}
+
+.leftpanel{
+	padding-top: 2.5rem !important;
+}
+
+.componentpadding{
+	padding-bottom: 1rem !important;
+}
+

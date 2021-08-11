@@ -1,0 +1,43 @@
+/* Copyright ExcelEd */
+
+.container{
+	max-width: 850px !important;	
+}
+
+.form-control{
+	background-color: transparent !important;
+	font-size: 1.5rem !important;
+	padding: 0rem !important;
+	text-align: center;
+}
+
+.mainCol{
+	margin-right: 100px !important;
+}
+
+.col-sm-8{
+	padding: 0px !important;	
+}
+
+.row{
+	padding-bottom: 15px!important;	
+}
+
+.labelBox{
+	font-size: 1.5rem;
+	padding-top: 0.5rem;
+	white-space: nowrap;
+	background-color: #cce5ff;
+	border: 1px solid #007bff;
+}
+
+.hdrBox{
+	color: 1px solid #007bff;
+	padding: 0.5rem;	
+	text-align: center;
+}
+
+.textBox{
+	border: 1px solid green;
+}
+

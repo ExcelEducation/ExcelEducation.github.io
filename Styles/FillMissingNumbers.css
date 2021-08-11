@@ -1,0 +1,24 @@
+/* Copyright ExcelEd */
+
+.form-control{
+	max-width: 4rem !important;
+	width: 2.25rem;
+	background-color: transparent !important;
+	font-size: 1.5rem !important;
+	padding: 0rem !important;
+	text-align: center;
+}
+
+.col{
+	background-color: lightgray !important;
+	margin: 0.25rem !important;
+	text-align: center !important;
+	max-width: 4rem !important;
+}
+
+.labelBox{
+	font-weight: bold;
+	font-size: 1.5rem;
+	padding-top: 0.5rem;
+	color: #336600;
+}

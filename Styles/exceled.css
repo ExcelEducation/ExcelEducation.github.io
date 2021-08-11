@@ -1,0 +1,22 @@
+/* Copyright ExcelEd */
+
+.successMsg{
+	Color: #007bff;
+	font-size: 2rem;				
+}	
+
+.errorMsg{
+	Color: red;
+	font-size: 2rem;				
+}	
+
+.submitmsg{
+	Color: #007bff;
+	font-size: 2rem;				
+}	
+
+.errorBox{
+	border: 1px solid red;
+	color: red;
+}
+

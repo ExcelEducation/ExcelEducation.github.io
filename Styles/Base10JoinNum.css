@@ -1,0 +1,78 @@
+/* Copyright ExcelEd */
+
+.container{
+	max-width: 850px !important;	
+}
+
+.form-control{
+	background-color: transparent !important;
+	font-size: 1.5rem !important;
+	padding: 0rem !important;
+	text-align: center;
+}
+
+.mainCol{
+	margin-right: 100px !important;
+}
+
+.col-sm-8{
+	padding: 0px !important;	
+}
+
+.row{
+	padding-bottom: 15px!important;	
+	min-width: 100%;
+}
+
+.numberCol{
+	margin-right: 150px !important;
+}
+
+.labelBox{
+	font-size: 1.5rem;
+	padding: 5px;
+	margin: 10px 20px;
+	white-space: nowrap;
+	background-color: #cce5ff;
+	border: 1px solid #007bff;
+}
+
+.hdrBox{
+	color: 1px solid #007bff;
+	padding: 0.5rem;	
+	text-align: center;
+}
+
+.textBox{
+	border: 1px solid green;
+}
+
+.horizontal{
+	float:left;
+    display:inline-block;	
+}
+
+#container {
+position:relative;
+margin:8px auto;
+background:#fefefe;
+border:2px dashed #111;
+padding:3px;
+}
+#dv1, #dv2, #dv3 {
+width:60px;
+height:60px;
+background:#88ee00;
+border:1px solid blue;
+}
+#dv1 {
+margin:0 0 0 80px;
+}
+#dv2 {
+margin:0 0 0 40px;
+}
+#btn_drawar {
+display:block;
+margin:8px auto;
+background:#dadafb;
+}
